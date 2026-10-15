@@ -1,1 +1,320 @@
-# portofolio
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayu Muflihah | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Menggunakan Space Grotesk untuk Heading dan JetBrains Mono untuk Teks Code/Detail -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bg-dark': '#0a0a0a',
+                        'neon-lime': '#ccff00',
+                        'neon-pink': '#ff00ff',
+                        'off-white': '#f4f4f5'
+                    },
+                    fontFamily: {
+                        'grotesk': ['"Space Grotesk"', 'sans-serif'],
+                        'mono': ['"JetBrains Mono"', 'monospace'],
+                    },
+                    boxShadow: {
+                        'brutal-white': '4px 4px 0px 0px #ffffff',
+                        'brutal-lime': '6px 6px 0px 0px #ccff00',
+                        'brutal-lime-sm': '3px 3px 0px 0px #ccff00',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #f4f4f5;
+            overflow-x: hidden;
+        }
+
+        /* Efek Noise untuk Background agar lebih "Raw" */
+        .bg-noise {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* CSS untuk Teks Berjalan (Marquee) */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 15s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a; 
+            border-left: 1px solid #333;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ccff00; 
+        }
+
+        /* Hover states brutalist */
+        .brutal-card {
+            transition: all 0.2s ease-in-out;
+        }
+        .brutal-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 8px 8px 0px 0px #ccff00;
+        }
+    </style>
+</head>
+<body class="font-mono text-off-white selection:bg-neon-lime selection:text-black">
+
+    <div class="bg-noise"></div>
+
+    <!-- NAVBAR (Sticky) -->
+    <nav class="fixed top-0 w-full bg-bg-dark border-b-2 border-white z-40 flex justify-between items-center px-6 py-4">
+        <div class="font-grotesk font-bold text-xl uppercase tracking-tighter">
+            AYU<span class="text-neon-lime">_SYS</span>
+        </div>
+        <div class="hidden md:flex gap-6 font-bold text-sm uppercase">
+            <a href="#about" class="hover:text-neon-lime hover:underline decoration-2 underline-offset-4">About</a>
+            <a href="#skills" class="hover:text-neon-lime hover:underline decoration-2 underline-offset-4">Skills</a>
+            <a href="#projects" class="hover:text-neon-lime hover:underline decoration-2 underline-offset-4">Projects</a>
+            <a href="#contact" class="hover:text-neon-lime hover:underline decoration-2 underline-offset-4">Contact</a>
+        </div>
+        <!-- Mobile Menu Indicator -->
+        <div class="md:hidden text-neon-lime font-bold">
+            [MENU v]
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="min-h-screen flex flex-col justify-center items-center px-4 pt-20 relative">
+        <!-- Badge -->
+        <div class="absolute top-32 left-4 md:left-20 border-2 border-white px-3 py-1 bg-black text-xs transform -rotate-6 shadow-brutal-white z-10">
+            [ STATUS: ONLINE ]
+        </div>
+
+        <div class="text-center z-10 relative">
+            <h1 class="font-grotesk font-black text-6xl md:text-[8rem] lg:text-[10rem] uppercase leading-none tracking-tighter mix-blend-difference text-transparent" 
+                style="-webkit-text-stroke: 2px #f4f4f5;">
+                AYU <br> MUFLIHAH
+            </h1>
+            
+            <div class="mt-8 flex flex-col md:flex-row gap-4 justify-center items-center">
+                <span class="bg-neon-lime text-black font-bold px-4 py-2 uppercase border-2 border-transparent shadow-brutal-white transform rotate-2">
+                    Information Systems Student
+                </span>
+                <span class="bg-white text-black font-bold px-4 py-2 uppercase border-2 border-black transform -rotate-2">
+                    Coffee Enthusiast ☕
+                </span>
+            </div>
+        </div>
+
+        <!-- Decorative background elements -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-neon-lime rounded-full blur-[120px] opacity-20 -z-10"></div>
+    </section>
+
+    <!-- MARQUEE DIVIDER -->
+    <div class="border-y-2 border-white bg-black py-3 marquee-container text-neon-lime font-grotesk font-bold text-2xl uppercase">
+        <div class="marquee-content">
+            +++ WELCOME TO MY DIGITAL SPACE +++ SYSTEM ARCHITECTURE +++ DATA STRUCTURES +++ UI/UX DESIGN +++ COFFEE BREWING +++ WELCOME TO MY DIGITAL SPACE +++ SYSTEM ARCHITECTURE +++ DATA STRUCTURES +++ UI/UX DESIGN +++ COFFEE BREWING +++
+        </div>
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
+            
+            <div class="md:col-span-4 border-2 border-white p-6 relative bg-bg-dark shadow-brutal-white flex flex-col justify-between">
+                <div>
+                    <h2 class="font-grotesk font-bold text-4xl uppercase mb-2">ID_CARD</h2>
+                    <div class="w-full h-px bg-white mb-4"></div>
+                    <img src="https://placehold.co/400x400/ccff00/000000?text=AYU+M." alt="Ayu Portrait Placeholder" class="w-full border-2 border-white grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <div class="mt-4 font-mono text-xs text-gray-400">
+                    ID: 2024-SYS-BANTEN<br>
+                    LOC: INDONESIA
+                </div>
+            </div>
+
+            <div class="md:col-span-8 border-2 border-neon-lime p-8 md:p-12 bg-black shadow-brutal-lime relative group">
+                <h2 class="font-grotesk font-black text-5xl md:text-7xl mb-6 uppercase text-neon-lime">>>> Init<br>_AboutMe</h2>
+                <p class="text-lg md:text-xl leading-relaxed mb-6">
+                    Halo! Saya Ayu Muflihah, seorang mahasiswa yang sedang menempuh pendidikan di <span class="bg-white text-black px-1 font-bold">Universitas Banten Jaya</span>, tergabung dalam Fakultas Ilmu Komputer (FASILKOM). 
+                </p>
+                <p class="text-lg md:text-xl leading-relaxed text-gray-400">
+                    Saya memiliki ketertarikan mendalam pada persimpangan antara teknologi, bisnis, dan desain. Ketika tidak sedang *debugging* kode atau merancang antarmuka pengguna, Anda mungkin akan menemukan saya sedang mengeksplorasi kopi terbaik di kota.
+                </p>
+                
+                <div class="absolute bottom-4 right-4 text-neon-lime font-bold text-4xl animate-pulse">
+                    ✦
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="py-20 border-t-2 border-white bg-white text-black">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <h2 class="font-grotesk font-black text-5xl md:text-7xl mb-12 uppercase text-center border-b-4 border-black pb-4">Tech Stack & Skills</h2>
+            
+            <div class="flex flex-wrap justify-center gap-4 md:gap-6">
+                <!-- Skill Pills -->
+                <div class="px-6 py-3 border-2 border-black font-bold text-lg uppercase hover:bg-neon-lime hover:text-black transition-colors cursor-default shadow-[4px_4px_0px_0px_#000000]">
+                    Python Programming
+                </div>
+                <div class="px-6 py-3 border-2 border-black font-bold text-lg uppercase hover:bg-neon-pink hover:text-white transition-colors cursor-default shadow-[4px_4px_0px_0px_#000000]">
+                    Canva Design
+                </div>
+                <div class="px-6 py-3 border-2 border-black font-bold text-lg uppercase hover:bg-blue-600 hover:text-white transition-colors cursor-default shadow-[4px_4px_0px_0px_#000000]">
+                    UI/UX
+                </div>
+                <div class="px-6 py-3 border-2 border-black font-bold text-lg uppercase hover:bg-black hover:text-white transition-colors cursor-default shadow-[4px_4px_0px_0px_#000000]">
+                    Data Structures
+                </div>
+                <div class="px-6 py-3 border-2 border-black font-bold text-lg uppercase hover:bg-neon-lime hover:text-black transition-colors cursor-default shadow-[4px_4px_0px_0px_#000000]">
+                    E-Business
+                </div>
+                <div class="px-6 py-3 border-2 border-black font-bold text-lg uppercase hover:bg-black hover:text-white transition-colors cursor-default shadow-[4px_4px_0px_0px_#000000]">
+                    System Analysis
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="flex justify-between items-end mb-12 border-b-2 border-white pb-4">
+            <h2 class="font-grotesk font-black text-5xl md:text-7xl uppercase">Selected<br>Works</h2>
+            <span class="font-mono text-neon-lime hidden md:block">[ LATEST DIRECTORY ]</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Project 1 -->
+            <article class="border-2 border-white bg-bg-dark brutal-card flex flex-col group cursor-pointer">
+                <div class="h-48 border-b-2 border-white bg-black flex items-center justify-center p-4 relative overflow-hidden">
+                    <div class="font-mono text-neon-lime text-xs w-full text-left">
+                        > python lyric_anim.py<br>
+                        > Loading "Kalah Lagi"...<br>
+                        > [======    ] 60%
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <span class="text-xs text-neon-lime mb-2 block font-bold">> DEVELOPMENT</span>
+                    <h3 class="font-grotesk font-bold text-2xl uppercase mb-3 group-hover:text-neon-lime transition-colors">Python Terminal Lyric Animation</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Sebuah proyek eksperimental menggunakan Python untuk menganimasikan lirik lagu "Kalah Lagi" langsung di dalam command line terminal.</p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="text-[10px] border border-gray-600 px-2 py-1">Python</span>
+                        <span class="text-[10px] border border-gray-600 px-2 py-1">Terminal</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="border-2 border-white bg-bg-dark brutal-card flex flex-col group cursor-pointer">
+                <div class="h-48 border-b-2 border-white bg-[#ff5e00] flex items-center justify-center p-4 relative overflow-hidden">
+                    <h4 class="font-grotesk font-black text-4xl text-black transform -rotate-12">RISOL<br>ENYOY</h4>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <span class="text-xs text-[#ff5e00] mb-2 block font-bold">> E-BUSINESS</span>
+                    <h3 class="font-grotesk font-bold text-2xl uppercase mb-3 group-hover:text-[#ff5e00] transition-colors">Risol Mayo Enyoy</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Proyek E-Business terpadu mulai dari branding, manajemen produk, hingga pemasaran digital untuk produk cemilan lokal "Risol Mayo Enyoy".</p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="text-[10px] border border-gray-600 px-2 py-1">Business Plan</span>
+                        <span class="text-[10px] border border-gray-600 px-2 py-1">Marketing</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="border-2 border-white bg-bg-dark brutal-card flex flex-col group cursor-pointer">
+                <div class="h-48 border-b-2 border-white bg-blue-600 flex items-center justify-center p-4 relative overflow-hidden">
+                    <div class="w-20 h-20 border-4 border-black rounded-full bg-white flex items-center justify-center text-black font-black text-2xl font-grotesk">
+                        IMBA
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <span class="text-xs text-blue-400 mb-2 block font-bold">> GRAPHIC DESIGN</span>
+                    <h3 class="font-grotesk font-bold text-2xl uppercase mb-3 group-hover:text-blue-400 transition-colors">Pra Mubes IMBA</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Merancang identitas visual, poster, dan aset media sosial menggunakan Canva & tools UI untuk acara Pra Mubes Ikatan Mahasiswa Baros.</p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="text-[10px] border border-gray-600 px-2 py-1">Canva</span>
+                        <span class="text-[10px] border border-gray-600 px-2 py-1">Visual Identity</span>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- MARQUEE DIVIDER -->
+    <div class="border-y-2 border-white bg-neon-lime py-2 marquee-container text-black font-mono font-bold text-xl uppercase">
+        <div class="marquee-content" style="animation-direction: reverse;">
+            AVAILABLE FOR HIRE --- OPEN TO COLLABORATION --- LET'S BUILD SOMETHING --- AVAILABLE FOR HIRE --- OPEN TO COLLABORATION --- LET'S BUILD SOMETHING --- 
+        </div>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-24 px-6 md:px-12 flex flex-col items-center text-center relative overflow-hidden">
+        
+        <!-- Big Background Text -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-grotesk font-black text-[12vw] text-white opacity-5 pointer-events-none w-full text-center whitespace-nowrap">
+            CONNECT
+        </div>
+
+        <h2 class="font-grotesk font-black text-5xl md:text-7xl uppercase mb-6 z-10">Initiate <br> Connection</h2>
+        <p class="text-gray-400 max-w-lg mb-12 z-10">Tertarik untuk kolaborasi project E-Business, ngoding bareng Python, atau sekadar ngopi? Jangan ragu buat sapa!</p>
+        
+        <div class="flex flex-col md:flex-row gap-6 z-10 w-full max-w-3xl">
+            <a href="mailto:email.ayu@example.com" class="flex-1 bg-white text-black border-2 border-black px-6 py-4 font-bold text-xl uppercase hover:bg-black hover:text-white hover:border-white transition-all transform hover:-translate-y-1 shadow-brutal-white group">
+                [ EMAIL ] 
+                <span class="block text-sm font-normal mt-1 text-gray-600 group-hover:text-gray-400">ayu@bantenjaya.ac.id</span>
+            </a>
+            <a href="#" class="flex-1 bg-bg-dark border-2 border-white px-6 py-4 font-bold text-xl uppercase hover:bg-neon-lime hover:text-black hover:border-black transition-all transform hover:-translate-y-1 shadow-brutal-lime-sm group">
+                [ INSTAGRAM ]
+                <span class="block text-sm font-normal mt-1 text-gray-400 group-hover:text-gray-800">@ayumuflihah</span>
+            </a>
+            <a href="#" class="flex-1 bg-bg-dark border-2 border-white px-6 py-4 font-bold text-xl uppercase hover:bg-white hover:text-black hover:border-black transition-all transform hover:-translate-y-1 shadow-brutal-white group">
+                [ GITHUB ]
+                <span class="block text-sm font-normal mt-1 text-gray-400 group-hover:text-gray-600">/ayusys</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t-2 border-white p-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-mono gap-4">
+        <div>
+            © 2024 AYU MUFLIHAH. ALL RIGHTS RESERVED.
+        </div>
+        <div class="flex gap-4">
+            <span>SYS.VER 1.0.0</span>
+            <span>RENDERING: OK</span>
+        </div>
+    </footer>
+
+</body>
+</html>
